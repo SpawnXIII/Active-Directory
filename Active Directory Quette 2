@@ -1,0 +1,93 @@
+Voici une documentation rédigée en Markdown pour accomplir les tâches demandées sur l'Active Directory avec le domaine `wilders.lan`.
+
+```markdown
+# Documentation : Création d'une Unité d'Organisation, d'un Groupe et d'un Utilisateur sur Active Directory
+
+## Prérequis
+- Un serveur Windows Server 2012 R2 configuré avec Active Directory Domain Services (AD DS).
+- Domaine : `wilders.lan`.
+- Un compte administrateur disposant des droits nécessaires pour effectuer ces opérations.
+
+---
+
+## Étape 1 : Création de l'Unité d'Organisation (OU) `Wilders_students`
+
+1. **Ouvrir l'outil "Utilisateurs et ordinateurs Active Directory"** :
+   - Accédez à **Outils d'administration** > **Utilisateurs et ordinateurs Active Directory**.
+
+2. **Créer une nouvelle OU** :
+   - Dans le panneau de gauche, faites un clic droit sur le nom du domaine `wilders.lan`.
+   - Sélectionnez **Nouveau** > **Unité d'organisation**.
+   - Donnez un nom à l'OU : `Wilders_students`.
+   - Cliquez sur **OK**.
+
+3. **Vérifier la création** :
+   - Dans la hiérarchie, assurez-vous que l'OU `Wilders_students` apparaît sous le domaine.
+
+---
+
+## Étape 2 : Création du Groupe d'utilisateurs `Students`
+
+1. **Accéder à l'OU `Wilders_students`** :
+   - Développez le domaine `wilders.lan` et sélectionnez l'OU `Wilders_students`.
+
+2. **Créer le groupe `Students`** :
+   - Faites un clic droit sur l'OU `Wilders_students`.
+   - Sélectionnez **Nouveau** > **Groupe**.
+   - Remplissez les champs comme suit :
+     - **Nom du groupe** : `Students`.
+     - **Type de groupe** : **Sécurité**.
+     - **Étendue du groupe** : **Global**.
+   - Cliquez sur **OK**.
+
+3. **Vérifier la création** :
+   - Le groupe `Students` doit apparaître dans l'OU `Wilders_students`.
+
+---
+
+## Étape 3 : Création d'un utilisateur dans le groupe `Students`
+
+1. **Créer un utilisateur** :
+   - Faites un clic droit sur l'OU `Wilders_students`.
+   - Sélectionnez **Nouveau** > **Utilisateur**.
+   - Remplissez les informations demandées :
+     - **Nom complet** : John Doe.
+     - **Nom d'utilisateur** : `jdoe`.
+   - Cliquez sur **Suivant**.
+
+2. **Configurer le mot de passe** :
+   - Saisissez un mot de passe pour l'utilisateur.
+   - Décochez l'option **L'utilisateur doit changer son mot de passe à la prochaine ouverture de session**, si nécessaire.
+   - Cliquez sur **Suivant**, puis sur **Terminer**.
+
+3. **Ajouter l'utilisateur au groupe `Students`** :
+   - Faites un clic droit sur l'utilisateur `John Doe` créé dans l'OU `Wilders_students`.
+   - Sélectionnez **Propriétés** > **Membre de**.
+   - Cliquez sur **Ajouter**.
+   - Dans le champ de recherche, saisissez `Students`, puis cliquez sur **Vérifier les noms**.
+   - Cliquez sur **OK** pour ajouter l'utilisateur au groupe.
+
+4. **Vérifier l'appartenance au groupe** :
+   - Dans les propriétés de l'utilisateur, l'onglet **Membre de** doit afficher le groupe `Students`.
+
+---
+
+## Vérification finale
+
+1. Retournez dans l'OU `Wilders_students`.
+2. Assurez-vous que :
+   - L'OU contient le groupe `Students`.
+   - L'utilisateur `John Doe` est présent.
+   - L'utilisateur est bien membre du groupe `Students`.
+
+---
+
+## Conclusion
+
+La procédure permet de créer :
+- Une Unité d'Organisation : `Wilders_students`.
+- Un Groupe : `Students`.
+- Un Utilisateur : `John Doe` dans le groupe `Students`.
+
+Vous pouvez désormais gérer cet utilisateur et le groupe dans l'Active Directory.
+```
